@@ -17,11 +17,12 @@ sleep_hours = st.number_input("Sleep Hours Per Day", min_value=0.0, max_value=24
 social_hours = st.number_input("Social Hours Per Day", min_value=0.0, max_value=24.0, value=3.0, step=0.5)
 physical_activity_hours = st.number_input("Physical Activity Hours Per Day", min_value=0.0, max_value=24.0, value=1.0, step=0.5)
 gpa = st.number_input("GPA", min_value=0.0, max_value=4.0, value=3.0, step=0.1)
+age = st.number_input("Age", min_value=0, max_value=100, value=20, step=1)  # Yangi o'zgaruvchi qo'shildi
 
 # Natijani ko'rsatish uchun tugma
 if st.button("Predict Stress Level"):
     # Foydalanuvchi kiritgan ma'lumotlardan massiv yaratish
-    inputs = np.array([[study_hours, extracurricular_hours, sleep_hours, social_hours, physical_activity_hours, gpa]])
+    inputs = np.array([[study_hours, extracurricular_hours, sleep_hours, social_hours, physical_activity_hours, gpa, age]])
 
     # Model yordamida bashorat qilish
     result = model.predict(inputs)[0]  # Natijani 0, 1 yoki 2 sifatida qaytaradi
